@@ -1,4 +1,4 @@
-class CrudIndex extends require('view')
+class Index extends require('view')
   
   defaultSettings:
     breadcrumbs: []
@@ -37,4 +37,4 @@ class CrudIndex extends require('view')
     window.appRouter.navigate @settings.addUrl, true
     false
 
-module.exports = CrudIndex
+module.exports = Index

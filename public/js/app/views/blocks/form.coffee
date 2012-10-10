@@ -1,4 +1,4 @@
-class BlocksForm extends require('views/crud/form')
+class BlocksForm extends require('views/common/form')
 
   template: require 'templates/blocks/form'
 

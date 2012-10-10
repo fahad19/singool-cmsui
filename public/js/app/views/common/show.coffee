@@ -1,25 +1,22 @@
-class CrudRow extends require('view')
-  
-  defaultSettings:
-    indexUrl: null
+class Show extends require('view')
 
-  tagName: 'tr'
-    
+  defaultSettings:
+    indexUrl: null  
+  
   events:
-    'click a[data-button="show"]': 'show'
     'click a[data-button="edit"]': 'edit'
     'click a[data-button="delete"]': 'delete'
-    'click span.badge': 'show'
   
   render: =>
+    self = @
+    @settings.breadcrumbs.push
+      title: @model.get('title'), 
+      url: @settings.indexUrl + '/' + @model.id
+    
     $(@el).html @template
       model: @model
-    
+      
     @
-  
-  show: =>
-    window.appRouter.navigate @settings.indexUrl + '/' + @model.id, true
-    false
   
   edit: =>
     window.appRouter.navigate @settings.indexUrl + '/' + @model.id + '/edit', true
@@ -28,9 +25,9 @@ class CrudRow extends require('view')
   delete: =>
     if confirm 'Are you sure?'
       @model.destroy
-        success: (model, respone) =>
-          @remove()
+        success: (model, response) =>
           window.appRouter.navigate @settings.indexUrl, true
+    
     false
 
-module.exports = CrudRow
+module.exports = Show

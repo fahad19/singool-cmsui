@@ -1,4 +1,4 @@
-class BlocksIndex extends require('views/crud/index')
+class BlocksIndex extends require('views/common/index')
   
   template: require 'templates/blocks/index'
   

@@ -1,4 +1,4 @@
-class BlocksShow extends require('views/crud/show')
+class BlocksShow extends require('views/common/show')
   
   defaultSettings:
     breadcrumbs: [

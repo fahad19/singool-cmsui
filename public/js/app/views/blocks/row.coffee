@@ -1,4 +1,4 @@
-class BlocksRow extends require('views/crud/row')
+class BlocksRow extends require('views/common/row')
   
   defaultSettings:
     indexUrl: '!/blocks'

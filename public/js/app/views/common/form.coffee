@@ -1,4 +1,4 @@
-class CrudForm extends require('view')
+class Form extends require('view')
 
   defaultSettings:
     breadcrumbs: []
@@ -8,14 +8,18 @@ class CrudForm extends require('view')
     'submit form': 'submit'
     'click button[type="reset"]': 'reset'
 
-  render: =>
+  constructor: (options = {}) ->
+    super
+
     if @model.isNew()
       @settings.breadcrumbs.push({title: 'Add', url: '#'})
     else
       @settings.breadcrumbs.push({title: 'Edit', url: '#'})
+    
+    @
 
+  render: =>
     $(@el).html @template()
-
     @
 
   submit: (e) =>
@@ -41,4 +45,4 @@ class CrudForm extends require('view')
     window.appRouter.navigate @settings.indexUrl, true
     false
 
-module.exports = CrudForm
+module.exports = Form
