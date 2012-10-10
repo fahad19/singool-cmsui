@@ -8,7 +8,10 @@ class AppRouter extends require('router')
     '!/blocks/:id/edit': 'blocksEdit'
     '!/blocks/:id': 'blocksShow'
 
+
+  ###
   # CRUD methods
+  ###
   _index: (collectionPath, ViewPath, container = '#main') ->
     Collection = require collectionPath
     View = require ViewPath
@@ -52,13 +55,19 @@ class AppRouter extends require('router')
           model: model
         $(container).html view.render().el
 
+
+  ###
   # Basic methods
+  ###
   dashboard: ->
     Dashboard = require 'views/dashboard'
     window.dashboardView = new Dashboard
     $('#main').html window.dashboardView.render().el
 
+
+  ###
   # Blocks
+  ###
   blocksIndex: ->
     @_index 'collections/blocks', 'views/blocks/index'
   
@@ -70,6 +79,22 @@ class AppRouter extends require('router')
   
   blocksShow: (id) ->
     @_show 'collections/blocks', 'views/blocks/show', id
+
+
+  ###
+  # Contents
+  ###
+  contentsIndex: ->
+    @_index 'collections/contents', 'views/contents/index'
+  
+  contentsAdd: ->
+    @_add 'collections/contents', 'models/content', 'views/contents/form'
+  
+  contentsEdit: (id) ->
+    @_edit 'collections/contents', 'views/contents/form', id
+  
+  contentShow: (id) ->
+    @_show 'collections/contents', 'views/contents/show', id  
 
 
 module.exports = AppRouter

@@ -1,4 +1,4 @@
-class BlocksIndex extends require('view')
+class BlocksIndex extends require('views/crud/index')
   
   template: require 'templates/blocks/index'
   
@@ -7,37 +7,7 @@ class BlocksIndex extends require('view')
       {title: 'Home', url: '#!/'}
       {title: 'Blocks', url: '#!/blocks'}
     ]
+    rowViewPath: 'views/blocks/row'
+    addUrl: '!/blocks/add'
     
-  events:
-    'click a[data-button="add"]': 'add'
-  
-  constructor: (options) ->
-    super
-    @collection.bind 'reset', @renderList
-  
-  render: =>
-    $(@el).html @template()
-    
-    @collection.fetch()
-    @
-  
-  renderList: =>
-    self = @
-    @$('tbody').empty()
-    Row = require 'views/blocks/row'
-    @settings.collection.each (model) ->
-      model.rowView = new Row
-        model: model
-      self.$('table tbody').append model.rowView.render().el
-
-    if @settings.collection.length == 0
-      @$('table').hide()
-      @$('.alert-info').show()
-
-    true
-
-  add: =>
-    window.appRouter.navigate '!/blocks/add', true
-    false
-
 module.exports = BlocksIndex
