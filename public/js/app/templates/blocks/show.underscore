@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="span12">
+    <div id="content">
+      <%= this.html.breadcrumbs() %>
+      
+      <div class="page-header">
+        <h1>Task: <%= model.get('title') %></h1>
+      </div>
+      
+      <div class="actions">
+        <a href="#" class="btn" data-button="edit">Edit</a> 
+        <a href="#" class="btn btn-danger" data-button="delete">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>

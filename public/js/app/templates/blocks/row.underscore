@@ -1,0 +1,8 @@
+<td>
+  <span><%= model.get('title') %></span>
+</td>
+<td>
+  <a href="#" data-button="show">View</a>
+  <a href="#" data-button="edit">Edit</a> 
+  <a href="#" data-button="delete">Delete</a>
+</td>

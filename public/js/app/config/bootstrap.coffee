@@ -2,6 +2,10 @@
 Navbar = require 'singool/views/navbar'
 window.navbarView = new Navbar
   el: $ 'header'
+  links: [
+  	{title: 'Dashboard', url: '#!/'}
+  	{title: 'Blocks', url: '#!/blocks'}
+  ]
 window.navbarView.render()
 
 

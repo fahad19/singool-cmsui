@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="span12">
+    <div id="content">
+      <%= this.html.breadcrumbs() %>
+      
+      <div class="page-header">
+        <h1>
+          Blocks
+          <small></small>
+        </h1>
+      </div>
+      
+      <div class="actions">
+        <a href="#" data-button="add" class="btn btn-large btn-success">Add</a>
+      </div>
+      
+      <div class="alert alert-info" style="display: none;">
+        No records found. 
+        Why not <a href="#!/blocks/add"><strong>create one</strong></a>?
+      </div>
+      
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
