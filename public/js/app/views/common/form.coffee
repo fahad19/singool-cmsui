@@ -8,17 +8,12 @@ class Form extends require('view')
     'submit form': 'submit'
     'click button[type="reset"]': 'reset'
 
-  constructor: (options = {}) ->
-    super
-
+  render: =>
     if @model.isNew()
       @settings.breadcrumbs.push({title: 'Add', url: '#'})
     else
       @settings.breadcrumbs.push({title: 'Edit', url: '#'})
-    
-    @
 
-  render: =>
     $(@el).html @template()
     @
 
@@ -36,7 +31,7 @@ class Form extends require('view')
       @model.save attributes,
         error: (model, response) =>
           @form.showErrors e.target, model
-        success: (model, response) ->
+        success: (model, response) =>
           window.appRouter.navigate @settings.indexUrl, true
 
     false
