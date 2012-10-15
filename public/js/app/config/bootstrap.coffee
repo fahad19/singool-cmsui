@@ -2,11 +2,8 @@
 Navbar = require 'singool/views/navbar'
 window.navbarView = new Navbar
   el: $ 'header'
-  links: [
-  	{title: 'Dashboard', url: '#!/'}
-  	{title: 'Blocks', url: '#!/blocks'}
-  	{title: 'Users', url: '#!/users'}
-  ]
+  brand: 'Croogo'
+  links: []
 window.navbarView.render()
 
 
