@@ -5,6 +5,7 @@ window.navbarView = new Navbar
   links: [
   	{title: 'Dashboard', url: '#!/'}
   	{title: 'Blocks', url: '#!/blocks'}
+  	{title: 'Users', url: '#!/users'}
   ]
 window.navbarView.render()
 

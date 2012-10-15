@@ -8,6 +8,10 @@ class AppRouter extends require('router')
     '!/blocks/:id/edit': 'blocksEdit'
     '!/blocks/:id': 'blocksShow'
 
+    '!/users': 'usersIndex'
+    '!/users/add': 'usersAdd'
+    '!/users/:id/edit': 'usersEdit'
+    '!/users/:id': 'usersShow'
 
   ###
   # CRUD methods
@@ -79,6 +83,22 @@ class AppRouter extends require('router')
   
   blocksShow: (id) ->
     @_show 'collections/blocks', 'views/blocks/show', id
+
+
+  ###
+  # Users
+  ###
+  usersIndex: ->
+    @_index 'collections/users', 'views/users/index'
+  
+  usersAdd: ->
+    @_add 'collections/users', 'models/user', 'views/users/form'
+  
+  usersEdit: (id) ->
+    @_edit 'collections/users', 'views/users/form', id
+  
+  usersShow: (id) ->
+    @_show 'collections/users', 'views/users/show', id
 
 
   ###
