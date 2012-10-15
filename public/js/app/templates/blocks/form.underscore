@@ -9,13 +9,29 @@
       
       <%= this.form.create(this.model) %>
         <fieldset>
-          <%= this.form.inputs() %>
-        
-              <div class="form-actions">
-                <%= this.form.submit() %>
-                &nbsp;
-                <%= this.form.reset() %>
-              </div>
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#block-main" data-toggle="tab">Block</a></li>
+            <li><a href="#block-params" data-toggle="tab">Params</a></li>
+          </ul>
+
+          <div class="tab-content">
+            <div class="tab-pane active" id="block-main">
+              <%= this.form.input('title') %>
+              <%= this.form.input('show_title') %>
+              <%= this.form.input('body') %>
+              <%= this.form.input('element') %>
+            </div>
+
+            <div class="tab-pane" id="block-params">
+              <%= this.form.input('params') %>
+            </div>
+          </div>
+          
+          <div class="form-actions">
+            <%= this.form.submit() %>
+            &nbsp;
+            <%= this.form.reset() %>
+          </div>
         </fieldset>
       <%= this.form.end() %>
     </div>
