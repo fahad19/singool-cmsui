@@ -10,9 +10,9 @@ class Form extends require('view')
 
   render: =>
     if @model.isNew()
-      @settings.breadcrumbs.push({title: 'Add', url: '#'})
+      @settings.breadcrumbs[2] = title: 'Add', url: '#'
     else
-      @settings.breadcrumbs.push({title: 'Edit', url: '#'})
+      @settings.breadcrumbs[2] = title: 'Edit', url: '#'
 
     $(@el).html @template()
     @
