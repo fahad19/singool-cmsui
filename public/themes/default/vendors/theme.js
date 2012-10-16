@@ -1,5 +1,3 @@
-console.log('from theme');
-
 $(document).ready(function() {
 	$('aside ul li a').live('click', function() {
 		var siblingUl = $(this).parent().find('ul');
