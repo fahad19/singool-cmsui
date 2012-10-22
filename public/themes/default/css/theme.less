@@ -13,7 +13,7 @@ body { padding-top: 40px; }
 
 header .navbar { margin-bottom: 0px; border-bottom: 1px solid #707070; }
 
-#content { background-color: #fff; padding: 20px; border-radius: 0px; border-top-left-radius: 5px; box-shadow: 0 1px 2px rgba(0,0,0,.15); min-height: 500px; }
+#content { background-color: #fff; padding: 20px; border-radius: 0px; border-top-left-radius: 5px; border-bottom-left-radius: 5px; box-shadow: 0 1px 2px rgba(0,0,0,.15); min-height: 500px; }
 #sidebar { background-color: none; padding: 20px; border-radius: 0 0 6px 6px; }
 
 .actions { margin: 18px 0px; }
@@ -23,7 +23,7 @@ header .navbar { margin-bottom: 0px; border-bottom: 1px solid #707070; }
 
 .controls-container .controls + .controls { margin-top: 18px; }
 
-aside { display: block; float: left; width: 200px; padding-top: 20px;padding-bottom: 300px; background: -webkit-linear-gradient(top, #444, #eee); }
+aside { display: block; float: left; width: 200px; padding-top: 20px;padding-bottom: 300px; background: #444; }
 aside ul { list-style: none; padding: 0px; margin: 0px; border-top: 1px solid #393939; }
 aside ul li { margin: 0px; padding: 0px; }
 aside ul li a { display: block; color: #aaa; background: #444; padding: 7px 10px; border-top: 1px solid #4E4E4E; border-bottom: 1px solid #393939; }
@@ -37,11 +37,12 @@ aside ul li ul li a:hover { color: #fff; }
 aside ul li ul li a span { padding-left: 5px; }
 #main { margin-left: 200px; background: #444; padding: 10px 0px 0px 0px; }
 
-footer { margin-top: 20px; }
+footer { }
+footer .navbar { border-top: 1px solid #707070; }
+footer .navbar-fixed-bottom { margin-top: 0px; }
 footer p { text-align: center; margin-top: 10px; color: #ccc; }
 footer p a { color: #ccc; }
 footer p a:hover { color: #ccc; }
-
 
 @media (min-width: 1200px) {
   input, textarea { .input-xxlarge }
