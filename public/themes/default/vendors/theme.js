@@ -9,7 +9,9 @@ $(document).ready(function() {
 				parentLi.addClass('open');
 			}
 
-			return false;
+			if ($(this).attr('href') == '#') {
+				return false;
+			}
 		}
 	});
 });
