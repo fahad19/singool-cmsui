@@ -2,6 +2,10 @@
 
 This is an experimental project initially started to explore the possibilities of the responsive admin side UI of Croogo CMS.
 
+Demo: [http://fahad19.github.com/singool-cmsui/public/index.html](http://fahad19.github.com/singool-cmsui/public/index.html)
+
+Demo UI will function properly only for Blocks and Users section.
+
 # Singool.js
 
 Singool.js is a lightweight framework built on top of [Backbone.js](http://backbonejs.org/) that helps you develop single-page web applications.
