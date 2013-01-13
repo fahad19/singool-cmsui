@@ -1,7 +1,4 @@
 .DS_Store
 node_modules/*
 
-public/index.html
-public/css/app.css
-public/js/app.js
 public/js/plugins/*
