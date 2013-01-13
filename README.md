@@ -1,3 +1,7 @@
+# Singool.js CMS UI
+
+This is an experimental project initially started to explore the possibilities of the responsive admin side UI of Croogo CMS.
+
 # Singool.js
 
 Singool.js is a lightweight framework built on top of [Backbone.js](http://backbonejs.org/) that helps you develop single-page web applications.
