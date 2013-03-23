@@ -1,1 +1,1 @@
-["backbone-localstorage.js", "../../../css/bootstrap/js/bootstrap-tab.js", "../../../css/bootstrap/js/bootstrap-dropdown.js"]
+["../../../vendors/backbone.localStorage/backbone.localStorage.js", "../../../vendors/bootstrap/js/bootstrap-tab.js", "../../../vendors/bootstrap/js/bootstrap-dropdown.js"]
