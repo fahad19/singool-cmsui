@@ -102,6 +102,7 @@
     <a href="#test">Testing</a>
     <ul>
       <li><a href="#run-tests">Run tests</a></li>
+      <li><a href="#headless-tests">Headless testing</a></li>
       <li><a href="#tests-structure">File structure</a></li>
       <li><a href="#write-tests">Writing tests</a></li>
     </ul>
@@ -147,17 +148,16 @@
 
 <p>We will require <a href="http://nodejs.org/#download">Node.js with npm</a> installed.</p>
 
-<p>Once we have Node, we need to install <a href="http://coffeescript.org/">CoffeeScript</a>. It is not necessary for you to write your Singool application in CoffeeScript, but we need the <code>cake</code> command to run from command line.</p>
+<p>Once we have Node, we need to install <a href="http://coffeescript.org/">CoffeeScript</a> and <a href="http://twitter.github.com/bower/">Bower</a>. It is not necessary for you to write your Singool application in CoffeeScript, but we need the <code>cake</code> command to run from command line.</p>
 
-<pre><code>$ npm install -g coffee-script</code></pre>
+<pre><code>$ npm install -g coffee-script bower</code></pre>
 
 <h3 id="installation">Installation</h3>
 
 <pre><code>$ git clone git@github.com:fahad19/singool.git
 $ cd singool
-$ git submodule init
-$ git submodule update
-$ npm install</code></pre>
+$ npm install .
+$ cake install</code></pre>
 
 <h3 id="usage">Usage</h3>
 
@@ -173,6 +173,7 @@ Server running at http://localhost:3000</code></pre>
 <h3 id="demo">Demo</h3>
 
 <ul>
+  <li><a href="http://fahad19.github.com/singool-cmsui/public/index.html#!/users">Admin UI</a> (<a href="https://github.com/fahad19/singool-cmsui">source</a>)</li>
   <li><a href="http://singool-tasks.herokuapp.com/#!/tasks">Tasks</a> (<a href="https://github.com/fahad19/singool-tasks">source</a>)</li>
 </ul>
 
@@ -565,24 +566,6 @@ module.exports = FooView</code></pre>
   
 module.exports = AppRouter</code></pre>
 
-<p>Singool.js has introduced two new callback methods in Views, for before and after render():</p>
-
-<pre class="prettyprint" data-lang="coffeescript"><code>class FooView extends require('view')
-
-  template: require 'templates/foo/index'
-
-  beforeRender: =>
-    console.log 'beforeRender'
-
-  render: =>
-    @$el.html @template()
-    @
-
-  afterRender: =>
-    console.log 'afterRender'
-
-module.exports = FooView</code></pre>
-
 <p>Read more about Backbone.View <a href="http://documentcloud.github.com/backbone/#View">here</a>.</p>
 
 
@@ -629,18 +612,6 @@ module.exports = FooView</code></pre>
 <p>And from your Underscore templates:</p>
 
 <pre class="prettyprint"><code>&lt;p&gt;The string from helper is: &lt;%= this.foo.bar() %&gt;&lt;/p&gt;</code></pre>
-
-<p>Singool.js has introduced two new callback methods in Helpers, for before and after render() of Views:</p>
-
-<pre class="prettyprint" data-lang="coffeescript"><code>class FooHelper extends require('helper')
-
-  beforeRender: ->
-    console.log 'beforeRender'
-
-  afterRender: ->
-    console.log 'afterRender'
-
-module.exports = FooHelper</code></pre>
 
 <p>You can access View from within a Helper like this:</p>
 
@@ -716,19 +687,20 @@ module.exports = FooView</code></pre>
     attributes = @model.extract e.target
 
     if @model.isNew()
-      if !@model.set attributes
+      if !@model.set attributes, (validate: true)
         # validation fail on adding
         @form.showErrors e.target, @model
       else
         @collection.create @model
         window.appRouter.navigate '!/some-other-page', true
     else
-      @model.save attributes, 
+      if !(@model.save attributes, 
         error: (model, response) =>
           # validation fail on editing
           @form.showErrors e.target, model
         success: (model, response) ->
-          window.appRouter.navigate '!/some-other-page', true
+          window.appRouter.navigate '!/some-other-page', true)
+        @form.showErrors e.target, @model
 
     false
 
@@ -891,16 +863,26 @@ module.exports = FooView</code></pre>
 
 <p>Singool uses <a href="http://visionmedia.github.com/mocha/">Mocha</a> in combination with <a href="https://github.com/LearnBoost/expect.js">Expect.js</a> for testing BDD style.</p>
 
-<h3 id="run-tests">Run tests</h3>
+<h3 id="run-tests">Run tests in the browser</h3>
 
 <p>To run tests, start the testing server:</p>
 
-<pre class="prettyprint"><code>$ cake test
+<pre class="prettyprint"><code>$ cake test-server
 Test server running at http://localhost:3000</code></pre>
 
 <p>Visit <code>http://localhost:3000</code> from your browser and it will start the Mocha test runner.</p>
 
 <p>If you are using Chrome as your browser, it is best if you run tests from Incognito mode, otherwise the tests may fail because of JavaScript injections by Chrome extensions.</p>
+
+<h3 id="headless-tests">Headless testing</h3>
+
+<p>You can also run the tests directly from the CLI using <a href="http://phantomjs.org/">PhantomJS</a>. Make sure you have it in your machine first:</p>
+
+<pre><code>$ brew update && brew install phantomjs</code></pre>
+
+<p>Now you can simply run the tests by:</p>
+
+<pre><code>$ cake test</code></pre>
 
 <h3 id="tests-structure">File structure</h3>
 

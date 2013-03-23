@@ -16,16 +16,18 @@ For more info, please visit [http://fahad19.github.com/singool/](http://fahad19.
 
 ## Installation
 
-    $ mkdir cmsui
-    $ cd cmsui
-    $ git init
-    $ git remote add origin git://...
-    $ git submodule init
-    $ git submodule update
+First have the global dependencies installed:
+
+    $ npm install -g coffee-script bower
+
+Now install singool-cmsui:
+
+    $ git clone origin git://github.com/fahad19/singool-cmsui.git
     $ npm install .
+    $ cake install
 
 ## Run
 
-    $ ./node_modules/.bin/cake server
+    $ cake server
 
 Open http://localhost:3000 from your browser.
