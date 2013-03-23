@@ -23,6 +23,7 @@ First have the global dependencies installed:
 Now install singool-cmsui:
 
     $ git clone origin git://github.com/fahad19/singool-cmsui.git
+    $ cd singool-cmsui
     $ npm install .
     $ cake install
 
