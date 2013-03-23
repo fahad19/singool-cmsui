@@ -22,17 +22,18 @@ class Form extends require('view')
     attributes = @model.extract e.target
 
     if @model.isNew()
-      if !@model.set attributes
+      if !@model.set attributes, (validate: true)
         @form.showErrors e.target, @model
       else
         @collection.create @model
         window.appRouter.navigate @settings.indexUrl, true
     else
-      @model.save attributes,
+      if !(@model.save attributes,
         error: (model, response) =>
           @form.showErrors e.target, model
         success: (model, response) =>
-          window.appRouter.navigate @settings.indexUrl, true
+          window.appRouter.navigate @settings.indexUrl, true)
+        @form.showErrors e.target, @model
 
     false
 

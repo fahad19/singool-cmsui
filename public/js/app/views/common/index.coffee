@@ -15,7 +15,7 @@ class Index extends require('view')
   render: =>
     $(@el).html @template()
     
-    @collection.fetch()
+    @collection.fetch reset: true
     @
   
   renderList: =>
